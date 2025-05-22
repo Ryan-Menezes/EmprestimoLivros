@@ -5,8 +5,25 @@
 
 <div class="d-flex justify-content-between align-items-center mb-5">
     <h1>@ViewData["Title"]</h1>
-    <a asp-controller="Emprestimo" asp-action="Cadastrar" class="btn btn-success">Cadastrar novo empréstimo</a>
+    <a asp-controller="Emprestimo" asp-action="Cadastrar" class="btn btn-success">
+        <i class="bi bi-plus-circle mx-1"></i>
+        Cadastrar novo empréstimo
+    </a>
 </div>
+
+@if (TempData["sucesso"] != null)
+{
+    <div class="alert alert-success text-light" role="alert">
+        @TempData["sucesso"]
+    </div>
+}
+
+@if (TempData["erro"] != null)
+{
+    <div class="alert alert-danger text-light" role="alert">
+        @TempData["erro"]
+    </div>
+}
 
 <table class="table table-hover">
     <thead>
@@ -29,8 +46,14 @@
                     <td>@emprestimo.LivroEmprestado</td>
                     <td>@emprestimo.DataAtualizacao</td>
                     <td>
-                        <a asp-controller="Emprestimo" asp-action="Editar" asp-route-id="@emprestimo.Id" class="btn btn-warning mx-2">Editar</a>
-                        <a asp-controller="Emprestimo" asp-action="Excluir" asp-route-id="@emprestimo.Id" class="btn btn-danger mx-2">Excluir</a>
+                        <a asp-controller="Emprestimo" asp-action="Editar" asp-route-id="@emprestimo.Id" class="btn btn-warning mx-2">
+                            <i class="bi bi-pencil-fill mx-1"></i>
+                            Editar
+                        </a>
+                        <a asp-controller="Emprestimo" asp-action="Excluir" asp-route-id="@emprestimo.Id" class="btn btn-danger mx-2">
+                            <i class="bi bi-trash-fill mx-1"></i>
+                            Excluir
+                        </a>
                     </td>
                 </tr>
             }

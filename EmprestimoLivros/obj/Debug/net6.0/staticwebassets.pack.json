@@ -5,6 +5,18 @@
       "PackagePath": "staticwebassets\\EmprestimoLivros.bundle.scp.css"
     },
     {
+      "Id": "C:\\laragon\\www\\estudo\\Projetos\\EmprestimoLivros\\EmprestimoLivros\\wwwroot\\css\\Lumen.css",
+      "PackagePath": "staticwebassets\\css\\Lumen.css"
+    },
+    {
+      "Id": "C:\\laragon\\www\\estudo\\Projetos\\EmprestimoLivros\\EmprestimoLivros\\wwwroot\\css\\Materia.css",
+      "PackagePath": "staticwebassets\\css\\Materia.css"
+    },
+    {
+      "Id": "C:\\laragon\\www\\estudo\\Projetos\\EmprestimoLivros\\EmprestimoLivros\\wwwroot\\css\\Sketchy.css",
+      "PackagePath": "staticwebassets\\css\\Sketchy.css"
+    },
+    {
       "Id": "C:\\laragon\\www\\estudo\\Projetos\\EmprestimoLivros\\EmprestimoLivros\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
