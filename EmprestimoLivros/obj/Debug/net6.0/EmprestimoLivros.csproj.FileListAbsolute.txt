@@ -75,3 +75,11 @@ C:\laragon\www\estudo\Projetos\EmprestimoLivros\EmprestimoLivros\bin\Debug\net6.
 C:\laragon\www\estudo\Projetos\EmprestimoLivros\EmprestimoLivros\obj\Debug\net6.0\EmprestimoLivros.csproj.AssemblyReference.cache
 C:\laragon\www\estudo\Projetos\EmprestimoLivros\EmprestimoLivros\obj\Debug\net6.0\Empresti.03A77E8E.Up2Date
 C:\laragon\www\estudo\Projetos\EmprestimoLivros\EmprestimoLivros\obj\Debug\net6.0\EmprestimoLivros.sourcelink.json
+C:\laragon\www\estudo\Projetos\EmprestimoLivros\EmprestimoLivros\bin\Debug\net6.0\ClosedXML.dll
+C:\laragon\www\estudo\Projetos\EmprestimoLivros\EmprestimoLivros\bin\Debug\net6.0\ClosedXML.Parser.dll
+C:\laragon\www\estudo\Projetos\EmprestimoLivros\EmprestimoLivros\bin\Debug\net6.0\DocumentFormat.OpenXml.dll
+C:\laragon\www\estudo\Projetos\EmprestimoLivros\EmprestimoLivros\bin\Debug\net6.0\DocumentFormat.OpenXml.Framework.dll
+C:\laragon\www\estudo\Projetos\EmprestimoLivros\EmprestimoLivros\bin\Debug\net6.0\ExcelNumberFormat.dll
+C:\laragon\www\estudo\Projetos\EmprestimoLivros\EmprestimoLivros\bin\Debug\net6.0\RBush.dll
+C:\laragon\www\estudo\Projetos\EmprestimoLivros\EmprestimoLivros\bin\Debug\net6.0\SixLabors.Fonts.dll
+C:\laragon\www\estudo\Projetos\EmprestimoLivros\EmprestimoLivros\bin\Debug\net6.0\System.IO.Packaging.dll
