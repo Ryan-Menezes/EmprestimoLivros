@@ -1,4 +1,6 @@
 using EmprestimoLivros.Data;
+using EmprestimoLivros.Services.LoginService;
+using EmprestimoLivros.Services.SenhaService;
 using Microsoft.EntityFrameworkCore;
 
 namespace EmprestimoLivros
@@ -16,6 +18,9 @@ namespace EmprestimoLivros
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
+
+            builder.Services.AddScoped<ILoginService, LoginService>();
+            builder.Services.AddScoped<ISenhaService, SenhaService>();
 
             var app = builder.Build();
 

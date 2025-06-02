@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="text-center mb-5">
+    <h1>@ViewData["Title"]</h1>
+</div>
+
+@Html.Partial("_Alerts")
+
+<form asp-action="Login" asp-controller="Login" method="POST">
+    <div class="mb-3">
+        <label for="email" class="form-label">E-mail</label>
+        <input type="email" class="form-control" id="email">
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Senha</label>
+        <input type="password" class="form-control" id="password">
+    </div>
+
+    <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary w-25 m-1">Entrar</button>
+        <a asp-action="Registrar" asp-controller="Login" class="btn w-25 border m-1">Cadastrar-se</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

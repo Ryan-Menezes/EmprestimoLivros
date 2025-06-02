@@ -19,19 +19,7 @@
     </div>
 </div>
 
-@if (TempData["sucesso"] != null)
-{
-    <div class="alert alert-success text-light" role="alert">
-        @TempData["sucesso"]
-    </div>
-}
-
-@if (TempData["erro"] != null)
-{
-    <div class="alert alert-danger text-light" role="alert">
-        @TempData["erro"]
-    </div>
-}
+@Html.Partial("_Alerts")
 
 <table class="table table-hover">
     <thead>

@@ -106,7 +106,6 @@ namespace EmprestimoLivros.Controllers
             {
                 workbook.AddWorksheet(dados, "Dados empréstimo");
 
-
                 using (MemoryStream ms = new MemoryStream())
                 {
                     workbook.SaveAs(ms);
