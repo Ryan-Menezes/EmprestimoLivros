@@ -1,6 +1,7 @@
 using EmprestimoLivros.Data;
 using EmprestimoLivros.Services.LoginService;
 using EmprestimoLivros.Services.SenhaService;
+using EmprestimoLivros.Services.SessaoService;
 using Microsoft.EntityFrameworkCore;
 
 namespace EmprestimoLivros
@@ -19,8 +20,16 @@ namespace EmprestimoLivros
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
 
+            builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             builder.Services.AddScoped<ILoginService, LoginService>();
             builder.Services.AddScoped<ISenhaService, SenhaService>();
+            builder.Services.AddScoped<ISessaoService, SessaoService>();
+
+            builder.Services.AddSession(options =>
+            {
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
 
             var app = builder.Build();
 
@@ -39,9 +48,11 @@ namespace EmprestimoLivros
 
             app.UseAuthorization();
 
+            app.UseSession();
+
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=Login}/{action=Login}/{id?}");
 
             app.Run();
         }

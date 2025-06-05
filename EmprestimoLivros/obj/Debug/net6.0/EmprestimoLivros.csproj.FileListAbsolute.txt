@@ -83,3 +83,4 @@ C:\laragon\www\estudo\Projetos\EmprestimoLivros\EmprestimoLivros\bin\Debug\net6.
 C:\laragon\www\estudo\Projetos\EmprestimoLivros\EmprestimoLivros\bin\Debug\net6.0\RBush.dll
 C:\laragon\www\estudo\Projetos\EmprestimoLivros\EmprestimoLivros\bin\Debug\net6.0\SixLabors.Fonts.dll
 C:\laragon\www\estudo\Projetos\EmprestimoLivros\EmprestimoLivros\bin\Debug\net6.0\System.IO.Packaging.dll
+C:\laragon\www\estudo\Projetos\EmprestimoLivros\EmprestimoLivros\bin\Debug\net6.0\Newtonsoft.Json.dll

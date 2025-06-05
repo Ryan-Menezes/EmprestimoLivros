@@ -2,6 +2,7 @@
 using EmprestimoLivros.DTO;
 using EmprestimoLivros.Models;
 using EmprestimoLivros.Services.SenhaService;
+using EmprestimoLivros.Services.SessaoService;
 
 namespace EmprestimoLivros.Services.LoginService
 {
@@ -9,11 +10,45 @@ namespace EmprestimoLivros.Services.LoginService
     {
         private readonly ApplicationDbContext _context;
         private readonly ISenhaService _senhaService;
+        private readonly ISessaoService _sessaoService;
 
-        public LoginService(ApplicationDbContext context, ISenhaService senhaService)
+        public LoginService(ApplicationDbContext context, ISenhaService senhaService, ISessaoService sessaoService)
         {
             _context = context;
             _senhaService = senhaService;
+            _sessaoService = sessaoService;
+        }
+
+        public async Task<Response<Usuario>> Login(UsuarioLoginDTO usuarioLoginDTO)
+        {
+            Response<Usuario> response = new Response<Usuario>();
+
+            try
+            {
+                var usuario = _context.Usuarios.FirstOrDefault(x => x.Email == usuarioLoginDTO.Email);
+
+                if (
+                    usuario == null ||
+                    !_senhaService.VerificaSenha(usuarioLoginDTO.Senha, usuario.SenhaHash, usuario.SenhaSalt)
+                )
+                {
+                    response.Mensagem = "Credenciais inválidas!";
+                    response.Status = false;
+                    return response;
+                }
+
+                _sessaoService.Criar(usuario);
+
+                response.Mensagem = "Usuário logado com sucesso";
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                response.Mensagem = ex.Message;
+                response.Status = false;
+                return response;
+            }
         }
 
         public async Task<Response<Usuario>> Registrar(UsuarioRegisterDTO usuarioRegisterDTO)

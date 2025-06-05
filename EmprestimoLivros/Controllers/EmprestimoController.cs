@@ -1,6 +1,7 @@
 ﻿using ClosedXML.Excel;
 using EmprestimoLivros.Data;
 using EmprestimoLivros.Models;
+using EmprestimoLivros.Services.SessaoService;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
 
@@ -9,14 +10,18 @@ namespace EmprestimoLivros.Controllers
     public class EmprestimoController : Controller
     {
         private readonly ApplicationDbContext _db;
+        private readonly ISessaoService _sessaoService;
 
-        public EmprestimoController(ApplicationDbContext db)
+        public EmprestimoController(ApplicationDbContext db, ISessaoService sessaoService)
         {
             _db = db;
+            _sessaoService = sessaoService;
         }
 
         public IActionResult Index()
         {
+            if (_sessaoService.Buscar() == null) return RedirectToAction("Login", "Login");
+
             var emprestimos = _db.Emprestimos;
 
             return View(emprestimos);
@@ -24,12 +29,17 @@ namespace EmprestimoLivros.Controllers
 
         public IActionResult Cadastrar()
         {
+
+            if (_sessaoService.Buscar() == null) return RedirectToAction("Login", "Login");
+
             return View();
         }
 
         [HttpPost]
         public IActionResult Cadastrar([FromForm] Emprestimo emprestimo)
         {
+            if (_sessaoService.Buscar() == null) return RedirectToAction("Login", "Login");
+
             if (!ModelState.IsValid) return View();
 
             emprestimo.DataAtualizacao = DateTime.Now;
@@ -44,6 +54,8 @@ namespace EmprestimoLivros.Controllers
 
         public IActionResult Editar(int? id)
         {
+            if (_sessaoService.Buscar() == null) return RedirectToAction("Login", "Login");
+
             if (id == null || id == 0) return NotFound();
 
             var emprestimo = _db.Emprestimos.FirstOrDefault(x => x.Id == id);
@@ -56,6 +68,8 @@ namespace EmprestimoLivros.Controllers
         [HttpPost]
         public IActionResult Editar([FromForm] Emprestimo emprestimo)
         {
+            if (_sessaoService.Buscar() == null) return RedirectToAction("Login", "Login");
+
             if (!ModelState.IsValid) return View();
 
             var emprestimoDB = _db.Emprestimos.Find(emprestimo.Id);
@@ -76,6 +90,8 @@ namespace EmprestimoLivros.Controllers
 
         public IActionResult Excluir(int? id)
         {
+            if (_sessaoService.Buscar() == null) return RedirectToAction("Login", "Login");
+
             if (id == null || id == 0) return NotFound();
 
             var emprestimo = _db.Emprestimos.FirstOrDefault(x => x.Id == id);
@@ -88,6 +104,8 @@ namespace EmprestimoLivros.Controllers
         [HttpPost]
         public IActionResult Excluir([FromForm] Emprestimo emprestimo)
         {
+            if (_sessaoService.Buscar() == null) return RedirectToAction("Login", "Login");
+
             if (emprestimo == null) return NotFound();
 
             _db.Emprestimos.Remove(emprestimo);
@@ -100,6 +118,8 @@ namespace EmprestimoLivros.Controllers
 
         public IActionResult Exportar()
         {
+            if (_sessaoService.Buscar() == null) return RedirectToAction("Login", "Login");
+
             var dados = GetDados();
 
             using (XLWorkbook workbook = new XLWorkbook())

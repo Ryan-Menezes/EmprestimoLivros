@@ -2,6 +2,7 @@
 @model UsuarioRegisterDTO
 @{
     ViewData["Title"] = "Cadastro de usuários";
+    Layout = "_LayoutDeslogado";
 }
 
 <div class="text-center mb-5">
@@ -39,7 +40,7 @@
 
     <div class="d-flex justify-content-center">
         <button type="submit" class="btn btn-primary w-25 m-1">Cadastrar</button>
-        <a asp-action="Index" asp-controller="Login" class="btn w-25 border m-1">Voltar</a>
+        <a asp-action="Login" asp-controller="Login" class="btn w-25 border m-1">Voltar</a>
     </div>
 </form>
 
